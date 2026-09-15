@@ -111,7 +111,7 @@
   /* ---------- Слои (порядок слоёв Figma) ---------- */
   --layer-sky: 0;
   --layer-hero-gradient: 1;
-  --layer-hero-content: 6;           /* не из макета: на мобильном текст над горами; desktop — ниже */
+  --layer-hero-content: 6;           /* текст над горами; под горами только ≥1920 — ниже */
   --layer-mountains-middle: 3;
   --layer-mountains-front: 4;
   --layer-content-gradient: 5;
@@ -172,7 +172,14 @@
 
     --gutter: var(--space-7);
     --space-section: var(--space-9);
-    --layer-hero-content: 2;         /* текст Hero под горами, как в макете */
     --header-height: calc(var(--space-header-top) + var(--text-logo-line));
+  }
+}
+
+/* ---------- Ширина макета ≥1920: текст Hero уходит под горы, как в Figma ---------- */
+/* Уже 1920 горы мельчают и перекрывают заголовок, поэтому эффект только здесь */
+@media (min-width: 1920px) {
+  :root {
+    --layer-hero-content: 2;
   }
 }
