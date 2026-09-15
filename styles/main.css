@@ -1,0 +1,211 @@
+/* Базовые стили и примитивы: сброс, контейнер, типографика, ссылки, тэглайн */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 0;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-accent);
+  outline-offset: var(--focus-ring-offset);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Страница и контейнер ---------- */
+
+.page {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  container-type: inline-size;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- Заголовки и текст ---------- */
+
+.heading-1 {
+  max-width: var(--measure-hero);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-h1-size);
+  line-height: var(--text-h1-line);
+  text-transform: capitalize;
+}
+
+.heading-2 {
+  max-width: var(--measure-h2);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-h2-size);
+  line-height: var(--text-h2-line);
+}
+
+.heading-sm {
+  font-size: var(--text-heading-sm-size);
+  line-height: var(--text-heading-sm-line);
+  color: var(--color-accent);
+}
+
+.text-body {
+  max-width: var(--measure-body);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line);
+}
+
+/* ---------- Логотип ---------- */
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-logo-size);
+  line-height: var(--text-logo-line);
+  letter-spacing: var(--text-logo-tracking);
+  text-transform: capitalize;
+}
+
+/* ---------- Тэглайн с линией ---------- */
+
+.tagline {
+  display: flex;
+  align-items: center;
+  gap: var(--tagline-gap, var(--space-3));
+  color: var(--color-accent);
+  font-weight: var(--font-weight-extrabold);
+  font-size: var(--text-tagline-size);
+  line-height: var(--text-tagline-line);
+  letter-spacing: var(--text-tagline-tracking);
+  text-transform: uppercase;
+}
+
+.tagline::before {
+  content: "";
+  flex: none;
+  width: var(--tagline-line-width);
+  height: var(--tagline-line-height);
+  background-color: currentColor;
+}
+
+/* ---------- Ссылки ---------- */
+
+.link {
+  font-size: var(--text-ui-size);
+  line-height: var(--text-ui-line);
+  transition: color var(--duration-fast) var(--easing-standard);
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
+.link:active {
+  opacity: 0.8;
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-ui-size);
+  line-height: var(--text-ui-line);
+  transition: color var(--duration-fast) var(--easing-standard);
+}
+
+.link-arrow__icon {
+  flex: none;
+  width: var(--icon-arrow-width);
+  height: var(--icon-arrow-height);
+  transition: transform var(--duration-fast) var(--easing-standard);
+}
+
+.link-arrow:hover {
+  color: var(--color-accent);
+}
+
+.link-arrow:hover .link-arrow__icon {
+  transform: translateY(var(--space-1));
+}
+
+.link-arrow:active {
+  opacity: 0.8;
+}
+
+.link-arrow--accent {
+  color: var(--color-accent);
+}
+
+.link-arrow--accent:hover {
+  color: var(--color-text);
+}
+
+.link-arrow--accent .link-arrow__icon {
+  width: var(--icon-arrow-height);
+  height: var(--icon-arrow-width);
+}
+
+.link-arrow--accent:hover .link-arrow__icon {
+  transform: translateX(var(--space-1));
+}

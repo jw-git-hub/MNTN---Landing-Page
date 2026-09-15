@@ -21,9 +21,9 @@
   --shadow-soft: 0 0 100px 0 rgb(0 0 0 / 0.2);
 
   /* ---------- Шрифты ---------- */
-  /* Gilroy и Chronicle Display нет в Google Fonts — замены см. отчёт, ждут подтверждения */
-  --font-body: "Manrope", "Gilroy", system-ui, sans-serif;
-  --font-display: "Playfair Display", "Chronicle Display", Georgia, serif;
+  /* Файлы шрифтов — styles/fonts.css; запасные — на время загрузки */
+  --font-body: "Gilroy", system-ui, sans-serif;
+  --font-display: "Chronicle Display", Georgia, serif;
 
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -67,8 +67,12 @@
   --space-feature-number-x: 150px;   /* сдвиг текста от номера */
   --space-feature-number-y: 103px;   /* 141 − 38: текст ниже верха номера */
   --space-feature-number-top: 38px;  /* верх номера от верха секции */
-  --space-hero-top: 198px;           /* 287 − 89: от низа хедера до Hero */
-  --space-hero-left: 420px;          /* 500 − 80: от гаттера до Hero */
+  --space-feature-gap: 114px;        /* между фото и колонкой текста */
+  --space-header-top: 58px;          /* 64 − 6: буквы логотипа выступают над фреймом хедера */
+  --space-hero-top: 191px;           /* 287 − (58 + 38.4): от низа хедера до Hero */
+  --space-hero-left: 396px;          /* 500 − 80 − 24: от колонки Social до текста Hero */
+  --space-hero-social-offset: 72px;  /* 359 − 287: Social ниже верха Hero */
+  --space-hero-slider-offset: 39px;  /* 326 − 287: Slider ниже верха Hero */
 
   /* ---------- Размеры ---------- */
   --container-max: 1462px;           /* колонка секций */
@@ -86,6 +90,34 @@
   --slider-track-width: 3px;
   --slider-track-height: 240px;
   --slider-indicator-height: 60px;
+
+  /* ---------- Сцена с горами (координаты слоёв в пикселях макета 1920) ---------- */
+  --scenery-design-width: 1920;
+  --scenery-min-width: 900px;        /* не из макета: на узких экранах горы не мельчают */
+  --scenery-sky-top: -400;
+  --scenery-middle-top: 464;
+  --scenery-front-top: 768;
+  --scenery-hero-gradient-height: 1200;
+  --scenery-content-gradient-top: 1200;
+  --scenery-content-gradient-height: 700;
+  --scenery-content-start: 1440;     /* где начинается первая секция */
+
+  /* ---------- Слои (порядок слоёв Figma) ---------- */
+  --layer-sky: 0;
+  --layer-hero-gradient: 1;
+  --layer-hero-content: 6;           /* не из макета: на мобильном текст над горами; desktop — ниже */
+  --layer-mountains-middle: 3;
+  --layer-mountains-front: 4;
+  --layer-content-gradient: 5;
+  --layer-ui: 6;
+
+  /* ---------- Иконки ---------- */
+  --icon-arrow-width: 16px;
+  --icon-arrow-height: 24px;
+
+  /* ---------- Фокус (не из макета) ---------- */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 4px;
 
   /* ---------- Радиусы ---------- */
   --radius-none: 0;                  /* скруглений в макете нет */
@@ -124,5 +156,6 @@
 
     --gutter: var(--space-7);
     --space-section: var(--space-9);
+    --layer-hero-content: 2;         /* текст Hero под горами, как в макете */
   }
 }

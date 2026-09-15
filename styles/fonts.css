@@ -1,0 +1,17 @@
+/* Шрифты из макета. Gilroy Bold (700), Gilroy Medium (500), Chronicle Display Bold (700) — TODO: ждём файлы */
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../assets/fonts/gilroy-extrabold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chronicle Display";
+  src: url("../assets/fonts/chronicle-display-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
