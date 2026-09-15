@@ -4,7 +4,7 @@
 
 # MNTN — Landing Page
 
-**Вёрстка по готовому макету Figma. Чистые HTML и CSS, без JavaScript.**
+**Вёрстка по готовому макету Figma. HTML и CSS, плюс один маленький скрипт для анимации.**
 
 [**Открыть страницу →**](https://jw-git-hub.github.io/MNTN---Landing-Page/)
 
@@ -36,16 +36,23 @@
   в одном месте и сразу везде.
 - **Сцена гор разложена на слои, а не вклеена картинкой.** Три гряды и два
   затемнения тянутся от ширины окна, заголовок стоит между слоями.
-- **Мобильная версия придумана — и об этом сказано прямо.** В макете был
-  только десктоп 1920. Телефон и планшет собраны мной и подлежат согласованию
-  с дизайнером, а не выдаются за «как в макете».
+- **Адаптив под телефоны и планшеты сделан сверх макета — и об этом сказано
+  прямо.** В макете был только десктоп 1920, оптимизации под телефоны
+  и планшеты в нём не было. Мы придумали и добавили её сами: на планшете блоки
+  идут в две колонки и фотография чередуется слева и справа, как на десктопе;
+  на телефоне всё выстроено в одну колонку. Это наше решение, а не «как
+  в макете», — оно подлежит согласованию с дизайнером.
+- **Лёгкая анимация появления карточек — тоже наша добавка.** При прокрутке
+  первая карточка выезжает слева, вторая справа и так далее. Анимация
+  отключается, если человек выключил движение в системе, а без JavaScript
+  карточки просто видны.
 - **Тексты перенесены дословно**, включая опечатки оригинала. Правки в текст
   вносит тот, кому он принадлежит.
 - **Сделано то, чего в макете не рисуют:** описания к фотографиям, подписи
   для навигации с клавиатуры, видимая рамка фокуса, отключение анимации,
   если человек выключил движение в системе.
-- **Собрано за один заход** утром 15 сентября 2026 года — это видно
-  в истории коммитов.
+- **Собрано за один заход** утром 15 сентября 2026 года, адаптив
+  и анимация доработаны вечером того же дня — это видно в истории коммитов.
 
 ### Чего здесь нет
 
@@ -65,7 +72,8 @@
 <details>
 <summary><b>Технические детали</b></summary>
 
-**Стек.** HTML + CSS, без JavaScript, без сборщика и зависимостей. Страница
+**Стек.** HTML + CSS и один скрипт `scripts/reveal.js` (~30 строк) только
+для анимации появления; без сборщика и зависимостей. Страница
 работает из папки; публикация — GitHub Pages из ветки, сборка не нужна.
 
 **Раскладка файлов.**
@@ -77,6 +85,8 @@ styles/
   fonts.css         @font-face, пять локальных woff2
   main.css          сброс, контейнер, типографика, ссылки, тэглайн
   sections/         по файлу на секцию: header, hero, scenery, feature, footer
+scripts/
+  reveal.js         появление карточек при прокрутке (IntersectionObserver)
 assets/
   images/           горы (png + webp), фотографии (jpg + webp, 1x и 2x)
   icons/sprite.svg  стрелка, Instagram, Twitter, Account
@@ -91,9 +101,18 @@ docs/preview.jpg    кадр первого экрана для этого оп�
 в макете, ниже — поверх, иначе горы его перекрывают. Градиент пересчитан
 из `gradientHandlePositions`: −19.7°, стопы 31.1% и 108.9%.
 
-**Адаптив.** Мобильный-первым, брейкпоинты 768 / 1280 / 1920. Значения
-десктопа взяты из макета, остальные выведены — в `tokens.css` это помечено
-у каждой группы.
+**Адаптив (не из макета).** Мобильный-первым, брейкпоинты 768 / 1280 / 1920.
+До 767 — одна колонка; 768–1279 — две колонки, фото чередуется через тот же
+модификатор `feature--reverse`, футер в две колонки; от 1280 — значения
+макета, геометрия десктопа не изменилась до пикселя. Значения десктопа взяты
+из макета, остальные выведены — в `tokens.css` это помечено у каждой группы.
+
+**Анимация (не из макета).** Скрипт ставит `has-reveal` на `<html>`
+и через `IntersectionObserver` добавляет карточке `is-revealed`, когда видно
+15% её высоты. Нечётные выезжают слева, чётные — справа (`:nth-child(even)`),
+сдвиг 40px на телефоне и 80px шире, 800 мс. Переход назначен только
+на появление, поэтому при загрузке карточки не «уезжают» на глазах.
+При `prefers-reduced-motion` скрипт ничего не делает.
 
 **Картинки и шрифты.** `picture` с webp и джипегом-запасным, `srcset` 1x/2x,
 `loading="lazy"` ниже первого экрана, `fetchpriority="high"` у дальнего слоя
@@ -102,7 +121,7 @@ docs/preview.jpg    кадр первого экрана для этого оп�
 
 **Доступность.** Семантические секции, `aria-label` у навигаций и иконок,
 `aria-labelledby` у секций, `aria-hidden` у декора, `:focus-visible`,
-`prefers-reduced-motion`.
+`prefers-reduced-motion` (плавная прокрутка и анимация карточек).
 
 **Замер.** Каждая секция после вёрстки сверялась с координатами фрейма Figma:
 отклонения в пределах 1px. Осознанных расхождений два: «Account» 18px вместо
@@ -143,16 +162,24 @@ to fit. My work is everything between that mockup and the live page linked above
   happens in one place and applies everywhere.
 - **The mountain scene is layered, not pasted as one image.** Three ridges and
   two gradients scale with the viewport, and the heading sits between the layers.
-- **The mobile layout is invented — and said so out loud.** The mockup only had
-  a 1920 desktop frame. Phone and tablet layouts are mine and need the
-  designer's sign-off; they are not passed off as "per the mockup".
+- **Phone and tablet optimisation was added beyond the mockup — and said so
+  out loud.** The mockup only had a 1920 desktop frame, with no phone or tablet
+  layouts at all. We designed and added them ourselves: on tablets the blocks
+  sit in two columns with the photo alternating left and right, as on desktop;
+  on phones everything stacks into one column. This is our decision, not
+  "per the mockup", and it needs the designer's sign-off.
+- **A light reveal animation for the cards is our addition too.** On scroll the
+  first card slides in from the left, the second from the right, and so on. It
+  is switched off when the system asks for reduced motion, and without
+  JavaScript the cards are simply visible.
 - **Copy is reproduced verbatim,** original typos included. Text is edited by
   whoever owns it.
 - **The parts a mockup never shows are handled:** image descriptions, labels for
   keyboard navigation, a visible focus ring, and motion switched off when the
   system says so.
-- **Built in a single sitting** on the morning of 15 September 2026 — visible in
-  the commit history.
+- **Built in a single sitting** on the morning of 15 September 2026, with the
+  responsive layout and animation added that evening — visible in the commit
+  history.
 
 ### What is not here
 
@@ -172,7 +199,8 @@ done on top of the markup.
 <details>
 <summary><b>Technical notes</b></summary>
 
-**Stack.** HTML + CSS, no JavaScript, no bundler, no dependencies. The page runs
+**Stack.** HTML + CSS and one script, `scripts/reveal.js` (~30 lines), used only
+for the reveal animation; no bundler, no dependencies. The page runs
 straight from the folder; published via GitHub Pages from a branch, no build step.
 
 **Layout of the repository.**
@@ -184,6 +212,8 @@ styles/
   fonts.css         @font-face, five local woff2 files
   main.css          reset, container, typography, links, tagline
   sections/         one file per section: header, hero, scenery, feature, footer
+scripts/
+  reveal.js         card reveal on scroll (IntersectionObserver)
 assets/
   images/           mountains (png + webp), photos (jpg + webp, 1x and 2x)
   icons/sprite.svg  arrow, Instagram, Twitter, Account
@@ -199,9 +229,19 @@ designed, below that it stays in front — otherwise the ridges cover it. The he
 gradient is recalculated from `gradientHandlePositions`: −19.7°, stops at 31.1%
 and 108.9%.
 
-**Responsive.** Mobile-first, breakpoints at 768 / 1280 / 1920. Desktop values
-come from the mockup, the rest are derived — each group is marked accordingly
-in `tokens.css`.
+**Responsive (not in the mockup).** Mobile-first, breakpoints at 768 / 1280 /
+1920. Up to 767 — one column; 768–1279 — two columns with the photo alternating
+via the same `feature--reverse` modifier, footer in two columns; from 1280 — the
+mockup values, desktop geometry unchanged to the pixel. Desktop values come from
+the mockup, the rest are derived — each group is marked accordingly in
+`tokens.css`.
+
+**Animation (not in the mockup).** The script sets `has-reveal` on `<html>` and
+uses `IntersectionObserver` to add `is-revealed` once 15% of a card is visible.
+Odd cards slide in from the left, even ones from the right (`:nth-child(even)`),
+40px on phones and 80px wider, 800 ms. The transition applies only to the
+reveal, so cards never visibly slide away on load. With
+`prefers-reduced-motion` the script does nothing.
 
 **Images and fonts.** `picture` with webp and a jpg fallback, `srcset` 1x/2x,
 `loading="lazy"` below the fold, `fetchpriority="high"` on the far mountain
@@ -210,7 +250,7 @@ the fold are preloaded. First load at 1920 is about 0.7 MB.
 
 **Accessibility.** Semantic sections, `aria-label` on navigation and icons,
 `aria-labelledby` on sections, `aria-hidden` on decoration, `:focus-visible`,
-`prefers-reduced-motion`.
+`prefers-reduced-motion` (smooth scrolling and the card animation).
 
 **Measurement.** Every section was checked against the Figma frame coordinates
 after coding: deviations within 1px. There are two deliberate differences:
