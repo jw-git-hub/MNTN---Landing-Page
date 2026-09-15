@@ -57,13 +57,20 @@
   line-height: var(--text-footer-link-line);
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 768px) {
   .site-footer__inner {
-    grid-template-columns: minmax(0, 1fr) min(var(--feature-image-width), var(--feature-image-share));
-    column-gap: var(--space-feature-gap);
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--space-6);
   }
 
   .site-footer__copyright {
     margin-top: auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-footer__inner {
+    grid-template-columns: minmax(0, 1fr) min(var(--feature-image-width), var(--feature-image-share));
+    column-gap: var(--space-feature-gap);
   }
 }

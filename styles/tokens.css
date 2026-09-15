@@ -52,7 +52,7 @@
   --text-footer-link-size: 16px;
   --text-footer-link-line: 28px;
   --text-logo-tracking: 0.01em;      /* 0.32px, из макета */
-  --text-tagline-tracking: 0.3333em; /* 6px, из макета */
+  --text-tagline-tracking: 0.2em;    /* mobile: длинные тэглайны не переносятся; desktop 6px — ниже */
 
   /* ---------- Шкала отступов ---------- */
   --space-0: 2px;
@@ -71,6 +71,7 @@
   --space-feature-number-x: 150px;   /* сдвиг текста от номера */
   --space-feature-number-top: 38px;  /* верх номера от верха секции */
   --space-feature-gap: 114px;        /* между фото и колонкой текста */
+  --space-feature-column-gap: var(--space-5); /* tablet; desktop = --space-feature-gap — ниже */
   --space-header-top: 58px;          /* 64 − 6: буквы логотипа выступают над фреймом хедера */
   --space-hero-top: 191px;           /* 287 − (58 + 38.4): от низа хедера до Hero */
   --space-hero-left: 396px;          /* 500 − 80 − 24: от колонки Social до текста Hero */
@@ -89,8 +90,8 @@
   --measure-footer-slogan: 303px;
   --feature-image-width: 566px;
   --feature-image-ratio: 566 / 720;
-  --feature-image-share: 40%;        /* не из макета: предел ширины фото на узком десктопе */
-  --tagline-line-width: 72px;
+  --feature-image-share: 45%;        /* не из макета: доля фото на планшете; desktop 40% — ниже */
+  --tagline-line-width: var(--space-5); /* mobile; desktop 72px — ниже */
   --tagline-line-height: var(--space-0);
   --icon-size: 24px;
   --slider-track-width: 3px;
@@ -130,12 +131,19 @@
   --duration-fast: 200ms;
   --opacity-active: 0.8;
   --easing-standard: ease-out;
+
+  /* Появление карточек Feature при прокрутке */
+  --duration-reveal: 800ms;
+  --easing-reveal: cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-shift: var(--space-5);    /* mobile; tablet+ 80px — ниже */
 }
 
 /* ---------- Tablet ≥768 (не из макета) ---------- */
 @media (min-width: 768px) {
   :root {
     --header-height: calc(var(--space-3) + var(--text-logo-line));
+    --gutter: var(--space-5);
+    --reveal-shift: var(--space-7);
   }
 }
 
@@ -150,6 +158,9 @@
 
     --text-number-size: 240px;
     --text-number-line: 240px;
+
+    --text-tagline-tracking: 0.3333em; /* 6px, из макета */
+    --tagline-line-width: 72px;
 
     --text-logo-size: 32px;
     --text-logo-line: 38.4px;
@@ -170,6 +181,8 @@
     --text-footer-link-line: 32px;
 
     --gutter: var(--space-7);
+    --space-feature-column-gap: var(--space-feature-gap);
+    --feature-image-share: 40%;        /* предел ширины фото на узком десктопе */
     --space-section: var(--space-9);
     --header-height: calc(var(--space-header-top) + var(--text-logo-line));
   }

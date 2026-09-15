@@ -51,10 +51,12 @@
   object-fit: cover;
 }
 
-@media (min-width: 1280px) {
+/* ---------- Tablet ≥768: две колонки, фото чередуется, как на десктопе (не из макета) ---------- */
+@media (min-width: 768px) {
   .feature {
     grid-template-columns: minmax(0, 1fr) min(var(--feature-image-width), var(--feature-image-share));
-    column-gap: var(--space-feature-gap);
+    align-items: center;
+    column-gap: var(--space-feature-column-gap);
   }
 
   .feature--reverse {
@@ -63,6 +65,12 @@
 
   .feature--reverse .feature__media {
     order: -1;
+  }
+}
+
+@media (min-width: 1280px) {
+  .feature {
+    align-items: stretch;
   }
 
   .feature__body {
@@ -73,4 +81,24 @@
   .feature__number {
     top: var(--space-feature-number-top);
   }
+}
+
+/* ---------- Появление при прокрутке (не из макета): класс has-reveal ставит scripts/reveal.js ---------- */
+/* Нечётные карточки выезжают слева, чётные — справа. Переход только на появление: скрытие при загрузке мгновенное */
+
+.has-reveal .feature {
+  opacity: 0;
+  transform: translateX(calc(-1 * var(--reveal-shift)));
+}
+
+.has-reveal .feature:nth-child(even) {
+  transform: translateX(var(--reveal-shift));
+}
+
+.has-reveal .feature.is-revealed {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--duration-reveal) var(--easing-reveal),
+    transform var(--duration-reveal) var(--easing-reveal);
 }
