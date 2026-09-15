@@ -38,11 +38,11 @@
   затемнения тянутся от ширины окна, заголовок стоит между слоями.
 - **Адаптив под телефоны и планшеты сделан сверх макета — и об этом сказано
   прямо.** В макете был только десктоп 1920, оптимизации под телефоны
-  и планшеты в нём не было. Мы придумали и добавили её сами: на планшете блоки
+  и планшеты в нём не было. Придумал и добавил её сам: на планшете блоки
   идут в две колонки и фотография чередуется слева и справа, как на десктопе;
-  на телефоне всё выстроено в одну колонку. Это наше решение, а не «как
+  на телефоне всё выстроено в одну колонку. Это моё решение, а не «как
   в макете», — оно подлежит согласованию с дизайнером.
-- **Лёгкая анимация появления карточек — тоже наша добавка.** При прокрутке
+- **Лёгкая анимация появления карточек — тоже моя добавка.** При прокрутке
   первая карточка выезжает слева, вторая справа и так далее. Анимация
   отключается, если человек выключил движение в системе, а без JavaScript
   карточки просто видны.
@@ -59,8 +59,9 @@
 Это чистая вёрстка макета, и границу честнее назвать сразу. Страницу
 **не** оптимизировали под скорость и вес, **не** готовили к поиску,
 **не** размечали под ответы ИИ-ассистентов, **не** подключали аналитику,
-формы и интеграции. Все ссылки — заглушки: адресов в макете не было,
-они помечены в коде как открытый вопрос. Это отдельные слои работы,
+формы и интеграции. Адресов в макете не было: навигация ведёт к разделам
+страницы, соцсети — на Instagram и Twitter, а аккаунт, «read more» и ссылки
+футера открывают страницу-заглушку `soon.html`. Это отдельные слои работы,
 они делаются поверх вёрстки.
 
 ### Ссылки
@@ -80,11 +81,13 @@
 
 ```
 index.html
+soon.html           заглушка для страниц, которых нет в макете
 styles/
   tokens.css        значения макета: цвета, типографика, отступы, слои
   fonts.css         @font-face, пять локальных woff2
   main.css          сброс, контейнер, типографика, ссылки, тэглайн
   sections/         по файлу на секцию: header, hero, scenery, feature, footer
+  pages/soon.css    страница-заглушка
 scripts/
   reveal.js         появление карточек при прокрутке (IntersectionObserver)
 assets/
@@ -164,11 +167,11 @@ to fit. My work is everything between that mockup and the live page linked above
   two gradients scale with the viewport, and the heading sits between the layers.
 - **Phone and tablet optimisation was added beyond the mockup — and said so
   out loud.** The mockup only had a 1920 desktop frame, with no phone or tablet
-  layouts at all. We designed and added them ourselves: on tablets the blocks
+  layouts at all. I designed and added them myself: on tablets the blocks
   sit in two columns with the photo alternating left and right, as on desktop;
-  on phones everything stacks into one column. This is our decision, not
+  on phones everything stacks into one column. This is my decision, not
   "per the mockup", and it needs the designer's sign-off.
-- **A light reveal animation for the cards is our addition too.** On scroll the
+- **A light reveal animation for the cards is mine too.** On scroll the
   first card slides in from the left, the second from the right, and so on. It
   is switched off when the system asks for reduced motion, and without
   JavaScript the cards are simply visible.
@@ -186,8 +189,9 @@ to fit. My work is everything between that mockup and the live page linked above
 This is pure markup, and the boundary is better stated up front. The page was
 **not** optimised for speed or weight, **not** prepared for search engines,
 **not** marked up for AI assistants, and carries no analytics, forms or
-integrations. Every link is a placeholder: the mockup had no addresses, and they
-are flagged as open questions in the code. Those are separate layers of work,
+integrations. The mockup had no addresses: navigation jumps to page sections,
+social icons go to Instagram and Twitter, and Account, "read more" and the footer
+links open a `soon.html` placeholder. Those are separate layers of work,
 done on top of the markup.
 
 ### Links
@@ -207,11 +211,13 @@ straight from the folder; published via GitHub Pages from a branch, no build ste
 
 ```
 index.html
+soon.html           placeholder for pages the mockup lacks
 styles/
   tokens.css        mockup values: colours, type, spacing, layers
   fonts.css         @font-face, five local woff2 files
   main.css          reset, container, typography, links, tagline
   sections/         one file per section: header, hero, scenery, feature, footer
+  pages/soon.css    placeholder page
 scripts/
   reveal.js         card reveal on scroll (IntersectionObserver)
 assets/
