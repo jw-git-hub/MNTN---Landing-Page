@@ -49,6 +49,8 @@
   --text-tagline-line: 18px;
   --text-heading-sm-size: 20px;
   --text-heading-sm-line: 28px;
+  --text-footer-link-size: 16px;
+  --text-footer-link-line: 28px;
   --text-logo-tracking: 0.01em;      /* 0.32px, из макета */
   --text-tagline-tracking: 0.3333em; /* 6px, из макета */
 
@@ -67,7 +69,6 @@
   /* Вне шкалы — из макета, приведение к шкале сломает 1px-допуск */
   --space-feature-stack: 27px;       /* gap внутри текстового блока Feature */
   --space-feature-number-x: 150px;   /* сдвиг текста от номера */
-  --space-feature-number-y: 103px;   /* 141 − 38: текст ниже верха номера */
   --space-feature-number-top: 38px;  /* верх номера от верха секции */
   --space-feature-gap: 114px;        /* между фото и колонкой текста */
   --space-header-top: 58px;          /* 64 − 6: буквы логотипа выступают над фреймом хедера */
@@ -85,6 +86,7 @@
   --measure-hero: 950px;
   --measure-h2: 555px;
   --measure-body: 632px;
+  --measure-footer-slogan: 303px;
   --feature-image-width: 566px;
   --feature-image-ratio: 566 / 720;
   --tagline-line-width: 72px;
@@ -164,6 +166,9 @@
 
     --text-heading-sm-size: 24px;      /* заголовки колонок футера */
     --text-heading-sm-line: 32px;
+
+    --text-footer-link-size: 18px;     /* ссылки футера, Medium */
+    --text-footer-link-line: 32px;
 
     --gutter: var(--space-7);
     --space-section: var(--space-9);
