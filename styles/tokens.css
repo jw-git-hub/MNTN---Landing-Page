@@ -1,0 +1,128 @@
+/*
+ * Design tokens — MNTN Landing Page
+ * Источник: Figma SNLbrkVq2WmcBScYFT1u7y, фрейм #1:2 (1920×4600).
+ * Макет только десктопный: значения «desktop» — из макета, «mobile» — выведены (не из макета).
+ */
+
+:root {
+  /* ---------- Цвета (стили Figma: BG, Accent, Weiß) ---------- */
+  --color-surface: #0b1d26;
+  --color-accent: #fbd784;
+  --color-text: #ffffff;
+  --color-text-muted: rgb(255 255 255 / 0.5);   /* копирайт, фон полосы слайдера */
+  --color-text-ghost: rgb(255 255 255 / 0.1);   /* большие номера 01/02/03 */
+  --color-surface-transparent: rgb(11 29 38 / 0);
+
+  /* ---------- Градиенты ---------- */
+  --gradient-hero: linear-gradient(-13deg, var(--color-surface-transparent) 22%, var(--color-surface) 100%);
+  --gradient-content: linear-gradient(180deg, var(--color-surface-transparent) 0%, var(--color-surface) 61%);
+
+  /* ---------- Тени (стиль Figma: Shadow) ---------- */
+  --shadow-soft: 0 0 100px 0 rgb(0 0 0 / 0.2);
+
+  /* ---------- Шрифты ---------- */
+  /* Gilroy и Chronicle Display нет в Google Fonts — замены см. отчёт, ждут подтверждения */
+  --font-body: "Manrope", "Gilroy", system-ui, sans-serif;
+  --font-display: "Playfair Display", "Chronicle Display", Georgia, serif;
+
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* ---------- Типографика: mobile (не из макета, база) ---------- */
+  --text-h1-size: 40px;
+  --text-h1-line: 48px;
+  --text-h2-size: 32px;
+  --text-h2-line: 40px;
+  --text-number-size: 120px;
+  --text-number-line: 120px;
+  --text-logo-size: 24px;
+  --text-logo-line: 30px;
+  --text-body-size: 16px;
+  --text-body-line: 28px;
+  --text-ui-size: 16px;
+  --text-ui-line: 20px;
+  --text-tagline-size: 14px;
+  --text-tagline-line: 18px;
+  --text-heading-sm-size: 20px;
+  --text-heading-sm-line: 28px;
+  --text-logo-tracking: 0.01em;      /* 0.32px, из макета */
+  --text-tagline-tracking: 0.3333em; /* 6px, из макета */
+
+  /* ---------- Шкала отступов ---------- */
+  --space-0: 2px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 64px;
+  --space-7: 80px;
+  --space-8: 120px;
+  --space-9: 200px;
+
+  /* Вне шкалы — из макета, приведение к шкале сломает 1px-допуск */
+  --space-feature-stack: 27px;       /* gap внутри текстового блока Feature */
+  --space-feature-number-x: 150px;   /* сдвиг текста от номера */
+  --space-feature-number-y: 103px;   /* 141 − 38: текст ниже верха номера */
+  --space-feature-number-top: 38px;  /* верх номера от верха секции */
+  --space-hero-top: 198px;           /* 287 − 89: от низа хедера до Hero */
+  --space-hero-left: 420px;          /* 500 − 80: от гаттера до Hero */
+
+  /* ---------- Размеры ---------- */
+  --container-max: 1462px;           /* колонка секций */
+  --container-wide-max: 1760px;      /* хедер */
+  --gutter: var(--space-2);          /* mobile; desktop 80px — ниже */
+  --space-section: var(--space-8);   /* gap между секциями; desktop 200px — ниже */
+  --measure-hero: 950px;
+  --measure-h2: 555px;
+  --measure-body: 632px;
+  --feature-image-width: 566px;
+  --feature-image-ratio: 566 / 720;
+  --tagline-line-width: 72px;
+  --tagline-line-height: var(--space-0);
+  --icon-size: 24px;
+  --slider-track-width: 3px;
+  --slider-track-height: 240px;
+  --slider-indicator-height: 60px;
+
+  /* ---------- Радиусы ---------- */
+  --radius-none: 0;                  /* скруглений в макете нет */
+
+  /* ---------- Движение (не из макета) ---------- */
+  --duration-fast: 200ms;
+  --easing-standard: ease-out;
+}
+
+/* ---------- Desktop ≥1280: значения из макета ---------- */
+@media (min-width: 1280px) {
+  :root {
+    --text-h1-size: 88px;
+    --text-h1-line: 100px;
+
+    --text-h2-size: 64px;
+    --text-h2-line: 76.8px;            /* auto в Figma = 1.2 */
+
+    --text-number-size: 240px;
+    --text-number-line: 240px;
+
+    --text-logo-size: 32px;
+    --text-logo-line: 38.4px;
+
+    --text-tagline-size: 18px;
+    --text-tagline-line: 22px;
+
+    --text-body-size: 18px;
+    --text-body-line: 32px;
+
+    --text-ui-size: 18px;              /* навигация, ссылки, «scroll down», слайдер */
+    --text-ui-line: 22px;
+
+    --text-heading-sm-size: 24px;      /* заголовки колонок футера */
+    --text-heading-sm-line: 32px;
+
+    --gutter: var(--space-7);
+    --space-section: var(--space-9);
+  }
+}
