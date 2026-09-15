@@ -105,9 +105,11 @@ docs/preview.jpg    кадр первого экрана для этого оп�
 `prefers-reduced-motion`.
 
 **Замер.** Каждая секция после вёрстки сверялась с координатами фрейма Figma:
-отклонения в пределах 1px. Осознанные расхождения: «Account» 18px вместо 17px
-(единый кегль интерфейса), копирайт не повторяет случайный сдвиг макета на 6px,
-двойной пробел в заголовке второй секции схлопывается браузером.
+отклонения в пределах 1px. Осознанных расхождений два: «Account» 18px вместо
+17px (единый кегль интерфейса) и копирайт, который не повторяет случайный сдвиг
+макета на 6px. Ещё два отличия — не решения, а поведение браузера: двойной
+пробел в заголовке второй секции схлопывается, а трекинг тэглайнов добавляет
+6px после последней буквы, не сдвигая текст.
 
 </details>
 
@@ -211,10 +213,11 @@ the fold are preloaded. First load at 1920 is about 0.7 MB.
 `prefers-reduced-motion`.
 
 **Measurement.** Every section was checked against the Figma frame coordinates
-after coding: deviations within 1px. Deliberate differences: “Account” is 18px
-instead of 17px (one UI type size), the copyright does not repeat the mockup's
-accidental 6px shift, and the double space in the second section's heading is
-collapsed by the browser.
+after coding: deviations within 1px. There are two deliberate differences:
+“Account” is 18px instead of 17px (one UI type size), and the copyright does not
+repeat the mockup's accidental 6px shift. Two more are browser behaviour rather
+than decisions: the double space in the second section's heading is collapsed,
+and tagline letter-spacing adds 6px after the last letter without moving the text.
 
 </details>
 
