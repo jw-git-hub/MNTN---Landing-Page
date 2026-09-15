@@ -89,6 +89,7 @@
   --measure-footer-slogan: 303px;
   --feature-image-width: 566px;
   --feature-image-ratio: 566 / 720;
+  --feature-image-share: 40%;        /* не из макета: предел ширины фото на узком десктопе */
   --tagline-line-width: 72px;
   --tagline-line-height: var(--space-0);
   --icon-size: 24px;
@@ -125,11 +126,9 @@
   --focus-ring-width: 2px;
   --focus-ring-offset: 4px;
 
-  /* ---------- Радиусы ---------- */
-  --radius-none: 0;                  /* скруглений в макете нет */
-
   /* ---------- Движение (не из макета) ---------- */
   --duration-fast: 200ms;
+  --opacity-active: 0.8;
   --easing-standard: ease-out;
 }
 

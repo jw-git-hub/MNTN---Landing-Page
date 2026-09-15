@@ -162,7 +162,7 @@ a {
 }
 
 .link:active {
-  opacity: 0.8;
+  opacity: var(--opacity-active);
 }
 
 .link-arrow {
@@ -190,7 +190,7 @@ a {
 }
 
 .link-arrow:active {
-  opacity: 0.8;
+  opacity: var(--opacity-active);
 }
 
 .link-arrow--accent {

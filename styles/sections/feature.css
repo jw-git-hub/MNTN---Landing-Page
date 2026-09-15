@@ -53,12 +53,12 @@
 
 @media (min-width: 1280px) {
   .feature {
-    grid-template-columns: minmax(0, 1fr) min(var(--feature-image-width), 40%);
+    grid-template-columns: minmax(0, 1fr) min(var(--feature-image-width), var(--feature-image-share));
     column-gap: var(--space-feature-gap);
   }
 
   .feature--reverse {
-    grid-template-columns: min(var(--feature-image-width), 40%) minmax(0, 1fr);
+    grid-template-columns: min(var(--feature-image-width), var(--feature-image-share)) minmax(0, 1fr);
   }
 
   .feature--reverse .feature__media {
