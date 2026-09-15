@@ -1,0 +1,54 @@
+/* Сцена: небо, горы и затемняющие градиенты за Header и Hero (декор) */
+
+.scenery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: max(100%, var(--scenery-min-width));
+  height: calc(var(--scenery-unit) * (var(--scenery-content-gradient-top) + var(--scenery-content-gradient-height)));
+  margin-inline: auto;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.scenery__layer,
+.scenery__gradient {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.scenery__layer img {
+  width: 100%;
+  height: auto;
+}
+
+.scenery__layer--sky {
+  top: calc(var(--scenery-unit) * var(--scenery-sky-top));
+  z-index: var(--layer-sky);
+}
+
+.scenery__gradient--hero {
+  top: 0;
+  height: calc(var(--scenery-unit) * var(--scenery-hero-gradient-height));
+  z-index: var(--layer-hero-gradient);
+  background-image: var(--gradient-hero);
+}
+
+.scenery__layer--middle {
+  top: calc(var(--scenery-unit) * var(--scenery-middle-top));
+  z-index: var(--layer-mountains-middle);
+}
+
+.scenery__layer--front {
+  top: calc(var(--scenery-unit) * var(--scenery-front-top));
+  z-index: var(--layer-mountains-front);
+}
+
+.scenery__gradient--content {
+  top: calc(var(--scenery-unit) * var(--scenery-content-gradient-top));
+  height: calc(var(--scenery-unit) * var(--scenery-content-gradient-height));
+  z-index: var(--layer-content-gradient);
+  background-image: var(--gradient-content);
+}

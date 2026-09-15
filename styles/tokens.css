@@ -14,11 +14,13 @@
   --color-surface-transparent: rgb(11 29 38 / 0);
 
   /* ---------- Градиенты ---------- */
-  --gradient-hero: linear-gradient(-13deg, var(--color-surface-transparent) 22%, var(--color-surface) 100%);
+  /* угол и стопы пересчитаны из gradientHandlePositions узла #11:94 */
+  --gradient-hero: linear-gradient(-19.7deg, var(--color-surface-transparent) 31.1%, var(--color-surface) 108.9%);
   --gradient-content: linear-gradient(180deg, var(--color-surface-transparent) 0%, var(--color-surface) 61%);
 
   /* ---------- Тени (стиль Figma: Shadow) ---------- */
   --shadow-soft: 0 0 100px 0 rgb(0 0 0 / 0.2);
+  --shadow-soft-drop: drop-shadow(0 0 50px rgb(0 0 0 / 0.2)); /* та же тень для группы (текст + полоса) */
 
   /* ---------- Шрифты ---------- */
   /* Файлы шрифтов — styles/fonts.css; запасные — на время загрузки */
@@ -78,6 +80,7 @@
   --container-max: 1462px;           /* колонка секций */
   --container-wide-max: 1760px;      /* хедер */
   --gutter: var(--space-2);          /* mobile; desktop 80px — ниже */
+  --header-height: calc(var(--space-3) + var(--text-logo-line) + var(--space-2) + var(--text-ui-line)); /* mobile: две строки */
   --space-section: var(--space-8);   /* gap между секциями; desktop 200px — ниже */
   --measure-hero: 950px;
   --measure-h2: 555px;
@@ -101,6 +104,7 @@
   --scenery-content-gradient-top: 1200;
   --scenery-content-gradient-height: 700;
   --scenery-content-start: 1440;     /* где начинается первая секция */
+  --scenery-unit: calc(max(100cqw, var(--scenery-min-width)) / var(--scenery-design-width)); /* 1px макета; cqw от .page */
 
   /* ---------- Слои (порядок слоёв Figma) ---------- */
   --layer-sky: 0;
@@ -125,6 +129,13 @@
   /* ---------- Движение (не из макета) ---------- */
   --duration-fast: 200ms;
   --easing-standard: ease-out;
+}
+
+/* ---------- Tablet ≥768 (не из макета) ---------- */
+@media (min-width: 768px) {
+  :root {
+    --header-height: calc(var(--space-3) + var(--text-logo-line));
+  }
 }
 
 /* ---------- Desktop ≥1280: значения из макета ---------- */
@@ -157,5 +168,6 @@
     --gutter: var(--space-7);
     --space-section: var(--space-9);
     --layer-hero-content: 2;         /* текст Hero под горами, как в макете */
+    --header-height: calc(var(--space-header-top) + var(--text-logo-line));
   }
 }

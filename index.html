@@ -9,10 +9,29 @@
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/sections/scenery.css">
   <link rel="stylesheet" href="styles/sections/header.css">
+  <link rel="stylesheet" href="styles/sections/hero.css">
 </head>
 <body>
   <div class="page" id="top">
+    <div class="scenery" aria-hidden="true">
+      <picture class="scenery__layer scenery__layer--sky">
+        <source srcset="assets/images/mountains-back.webp" type="image/webp">
+        <img src="assets/images/mountains-back.png" width="1920" height="1513" alt="" fetchpriority="high">
+      </picture>
+      <div class="scenery__gradient scenery__gradient--hero"></div>
+      <picture class="scenery__layer scenery__layer--middle">
+        <source srcset="assets/images/mountains-middle.webp" type="image/webp">
+        <img src="assets/images/mountains-middle.png" width="1920" height="1422" alt="">
+      </picture>
+      <picture class="scenery__layer scenery__layer--front">
+        <source srcset="assets/images/mountains-front.webp" type="image/webp">
+        <img src="assets/images/mountains-front.png" width="1920" height="926" alt="">
+      </picture>
+      <div class="scenery__gradient scenery__gradient--content"></div>
+    </div>
+
     <header class="site-header">
       <div class="site-header__inner">
         <a class="logo site-header__logo" href="./" aria-label="MNTN home">MNTN</a>
@@ -33,6 +52,48 @@
         </a>
       </div>
     </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <p class="tagline hero__tagline">A Hiking guide</p>
+            <h1 class="heading-1" id="hero-title">Be prepared for the Mountains and beyond!</h1>
+            <a class="link-arrow hero__scroll" href="#get-started">
+              scroll down
+              <svg class="link-arrow__icon" width="16" height="24" aria-hidden="true"><use href="assets/icons/sprite.svg#arrow-down"></use></svg>
+            </a>
+          </div>
+
+          <div class="hero__social">
+            <p class="hero__social-title">Follow us</p>
+            <ul class="hero__social-list">
+              <!-- TODO: адреса профилей в макете не заданы -->
+              <li>
+                <a class="link hero__social-link" href="#" aria-label="Instagram">
+                  <svg width="24" height="24" aria-hidden="true"><use href="assets/icons/sprite.svg#instagram"></use></svg>
+                </a>
+              </li>
+              <li>
+                <a class="link hero__social-link" href="#" aria-label="Twitter">
+                  <svg width="24" height="24" aria-hidden="true"><use href="assets/icons/sprite.svg#twitter"></use></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <nav class="hero__slider" aria-label="Page sections">
+            <ul class="hero__slider-list">
+              <li><a class="link" href="#top" aria-current="true">Start</a></li>
+              <li><a class="link" href="#get-started">01</a></li>
+              <li><a class="link" href="#hiking-essentials">02</a></li>
+              <li><a class="link" href="#where-you-go">03</a></li>
+            </ul>
+            <span class="hero__slider-track" aria-hidden="true"></span>
+          </nav>
+        </div>
+      </section>
+    </main>
   </div>
 </body>
 </html>

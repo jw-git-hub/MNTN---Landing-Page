@@ -1,0 +1,135 @@
+/* Hero: тэглайн, заголовок, «scroll down», соцсети и навигация по разделам */
+
+.hero {
+  min-height: calc(var(--scenery-unit) * var(--scenery-content-start) - var(--header-height));
+  padding-block: var(--space-7);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-areas:
+    "content"
+    "social";
+  row-gap: var(--space-6);
+  width: 100%;
+  max-width: calc(var(--container-wide-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.hero__content {
+  grid-area: content;
+  position: relative;
+  z-index: var(--layer-hero-content);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.hero__tagline {
+  --tagline-gap: var(--space-4);
+}
+
+/* ---------- Соцсети ---------- */
+
+.hero__social {
+  grid-area: social;
+  position: relative;
+  z-index: var(--layer-ui);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.hero__social-title {
+  font-size: var(--text-ui-size);
+  line-height: var(--text-ui-line);
+}
+
+.hero__social-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.hero__social-link {
+  display: block;
+}
+
+/* ---------- Навигация по разделам ---------- */
+
+.hero__slider {
+  display: none;
+}
+
+.hero__slider-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-5);
+  line-height: var(--text-ui-line);
+}
+
+.hero__slider-list [aria-current="true"] {
+  color: var(--color-text);
+}
+
+.hero__slider-track {
+  position: relative;
+  flex: none;
+  width: var(--slider-track-width);
+  height: var(--slider-track-height);
+  background-color: var(--color-text-muted);
+}
+
+.hero__slider-track::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--slider-indicator-height);
+  background-color: var(--color-text);
+}
+
+@media (min-width: 1280px) {
+  .hero {
+    padding-block: var(--space-hero-top) 0;
+  }
+
+  .hero__inner {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "social content slider";
+    align-items: start;
+    column-gap: 0;
+  }
+
+  .hero__content {
+    padding-inline-start: clamp(0px, 100% - var(--measure-hero) - var(--space-5), var(--space-hero-left));
+  }
+
+  .hero__social {
+    flex-direction: column;
+    margin-top: var(--space-hero-social-offset);
+  }
+
+  .hero__social-title {
+    writing-mode: vertical-rl;
+  }
+
+  .hero__social-list {
+    flex-direction: column;
+  }
+
+  .hero__slider {
+    grid-area: slider;
+    position: relative;
+    z-index: var(--layer-ui);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-hero-slider-offset);
+    filter: var(--shadow-soft-drop);
+  }
+}

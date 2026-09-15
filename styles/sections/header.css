@@ -34,6 +34,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-3);
+  line-height: var(--text-ui-line);
 }
 
 .site-header__account {
