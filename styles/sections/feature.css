@@ -1,0 +1,76 @@
+/* Feature: номер, тэглайн, заголовок, текст, «read more» и фото. Модификатор --reverse — фото слева */
+
+.features {
+  position: relative;
+  z-index: var(--layer-ui);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-section);
+}
+
+.feature {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.feature__body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-6);
+}
+
+.feature__number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--color-text-ghost);
+  font-size: var(--text-number-size);
+  line-height: var(--text-number-line);
+  pointer-events: none;
+  user-select: none;
+}
+
+.feature__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-feature-stack);
+}
+
+.feature__media {
+  width: 100%;
+  max-width: var(--feature-image-width);
+}
+
+.feature__media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--feature-image-ratio);
+  object-fit: cover;
+}
+
+@media (min-width: 1280px) {
+  .feature {
+    grid-template-columns: minmax(0, 1fr) min(var(--feature-image-width), 40%);
+    column-gap: var(--space-feature-gap);
+  }
+
+  .feature--reverse {
+    grid-template-columns: min(var(--feature-image-width), 40%) minmax(0, 1fr);
+  }
+
+  .feature--reverse .feature__media {
+    order: -1;
+  }
+
+  .feature__body {
+    padding-top: 0;
+    padding-left: var(--space-feature-number-x);
+  }
+
+  .feature__number {
+    top: var(--space-feature-number-top);
+  }
+}
