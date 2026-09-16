@@ -6,7 +6,7 @@
 |---|---|---|
 | Токены | `styles: design tokens` | — |
 | Ассеты, шрифты, примитивы, LICENSE | `feat: assets, fonts, base primitives…` | — |
-| Header | `feat(header)` | в допуске, кроме Account (+3px, осознанно) |
+| Header | `feat(header)` | в допуске, кроме Account: кегль 18px вместо 17px, отсюда +3px по ширине надписи (осознанно) |
 | Hero + сцена + Social + Slider | `feat(hero)` | в допуске |
 | Feature 01/02/03 | `feat(features)` | в допуске |
 | Footer | `feat(footer)` | в допуске, кроме копирайта (−6px, осознанно) |

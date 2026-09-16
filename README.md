@@ -94,7 +94,10 @@ assets/
   images/           горы (png + webp), фотографии (jpg + webp, 1x и 2x)
   icons/sprite.svg  стрелка, Instagram, Twitter, Account
   fonts/            Gilroy 500/700/800, Chronicle Display 600/700
-docs/preview.jpg    кадр первого экрана для этого описания
+docs/
+  design-map.md     разбор макета: секции, повторы, что кодом, что картинкой
+  progress.md       журнал вёрстки: замеры, решения, открытые вопросы
+  preview.jpg       кадр первого экрана для этого описания
 ```
 
 **Решения.** Раскладка на flex и grid; зеркальная секция — модификатор
@@ -224,7 +227,10 @@ assets/
   images/           mountains (png + webp), photos (jpg + webp, 1x and 2x)
   icons/sprite.svg  arrow, Instagram, Twitter, Account
   fonts/            Gilroy 500/700/800, Chronicle Display 600/700
-docs/preview.jpg    first-screen shot for this readme
+docs/
+  design-map.md     mockup breakdown: sections, repeats, code vs image
+  progress.md       build log: measurements, decisions, open questions
+  preview.jpg       first-screen shot for this readme
 ```
 
 **Decisions.** Flex and grid; the mirrored section is a modifier using `order`,
